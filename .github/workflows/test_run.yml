@@ -9,7 +9,7 @@ on:
 
 jobs:
   pre-commit-update:
-    uses: dmanthing/test/.github/workflows/pre-commit-update.yml@v1
+    uses: dmanthing/test/.github/workflows/pre-commit-update.yml@main
     secrets:
       PRIVATE_ACCESS_TOKEN: ${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}
     with:
