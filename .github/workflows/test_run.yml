@@ -11,7 +11,7 @@ jobs:
   pre-commit-update:
     uses: dmanthing/test/.github/workflows/pre-commit-update.yml@main
     secrets:
-      PRIVATE_ACCESS_TOKEN: ${{ secrets.PRIVATE_ACCESS_TOKEN }}
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     with:
       python_version: "3.13"
       branch_name: "update/pre-commit-update"
