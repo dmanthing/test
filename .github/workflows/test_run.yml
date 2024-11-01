@@ -1,4 +1,4 @@
-name: pre-commit-update
+name: test-run
 
 on:
   # every day at midnight
