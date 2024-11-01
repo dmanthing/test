@@ -2,6 +2,9 @@ name: pre-commit-update
 
 on:
   workflow_call:
+    secrets:
+      PRIVATE_ACCESS_TOKEN:
+        required: true
     inputs:
       python_version:
         required: false
@@ -22,9 +25,6 @@ on:
 
 jobs:
   pre-commit-update:
-    permissions:
-      contents: write # for peter-evans/create-pull-request
-      pull-requests: write # for peter-evans/create-pull-request
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -37,7 +37,7 @@ jobs:
         shell: bash
       - uses: peter-evans/create-pull-request@v7
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.PRIVATE_ACCESS_TOKEN }}
           branch: ${{ inputs.branch_name }}
           title: ${{ inputs.pull_request_title }}
           commit-message: ${{ inputs.commit_message }}
