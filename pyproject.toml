@@ -1,0 +1,11 @@
+[tool.pre-commit-update]
+dry_run = false
+all_versions = true
+verbose = true
+warnings = true
+preview = false
+jobs = 10
+exclude = []
+keep = []
+bleeding_edge = []
+tag_prefix = [["cloudformation-guard", "pre-commit-v"]]
