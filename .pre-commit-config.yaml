@@ -1,0 +1,66 @@
+repos:
+  - repo: https://gitlab.com/vojko.pribudic.foss/pre-commit-update
+    rev: v0.5.1post1
+    hooks:
+      - id: pre-commit-update
+  - repo: https://github.com/ambv/black
+    rev: 22.10.0
+    hooks:
+    -   args:
+        - --config=pyproject.toml
+        id: black
+  - repo: https://gitlab.com/bmares/check-json5
+    rev: v1.0.0
+    hooks:
+      - id: check-json5
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.1.7
+    hooks:
+      - id: ruff
+  - repo: https://github.com/gitleaks/gitleaks
+    rev: v8.18.4
+    hooks:
+      - id: gitleaks
+  - repo: local
+    hooks:
+      - name: Local Test
+        id: local-test
+        entry: ls
+        language: python
+  - repo: git@github.com:pre-commit/pre-commit-hooks.git
+    rev: 51c43c4b295db1ec59a56abc6afd06aa5fc862e0
+    hooks:
+      - id: check-json
+      - id: check-merge-conflict
+      - id: check-toml
+      - id: check-yaml
+      - id: end-of-file-fixer
+      - id: pretty-format-json
+        args:
+          - --autofix
+      - id: sort-simple-yaml
+      - id: trailing-whitespace
+  - repo: https://github.com/python-poetry/poetry
+    rev: 1.8.0  # add version here
+    hooks:
+      - id: poetry-check
+      - id: poetry-lock
+      - id: poetry-export
+      - id: poetry-install
+  - repo: https://github.com/aws-cloudformation/cloudformation-guard
+    rev: pre-commit-v0.0.1
+    hooks:
+      # Validate
+      - id: cfn-guard
+        args:
+          - --operation=validate # Specify the validate operation
+          - --rules=path/to/rules/ # Rules directory
+        files: ^path/to/data/.* # Directory to watch for changes and validate against
+      # Test
+      - id: cfn-guard
+        args:
+          - --operation=test # Specify the test operation
+          - --dir=path/to/resources/ # Directory that contains rules & their tests
+        files: ^path/to/resources.* # Same directory supplied to the --dir arg so that rule and test file changes trigger a run
+
+

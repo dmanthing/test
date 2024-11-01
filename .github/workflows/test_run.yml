@@ -1,0 +1,19 @@
+name: pre-commit-update
+
+on:
+  # every day at midnight
+  schedule:
+    - cron: "0 0 * * *"
+  # on demand
+  workflow_dispatch:
+
+jobs:
+  pre-commit-update:
+    uses: dmanthing/test/.github/workflows/pre-commit-update.yml@v1
+    secrets:
+      PRIVATE_ACCESS_TOKEN: ${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}
+    with:
+      python_version: "3.13"
+      branch_name: "update/pre-commit-update"
+      pull_request_title: "chore(deps): upgrade pre-commit-hooks"
+      commit_message: "chore(deps): upgrade pre-commit-hooks"

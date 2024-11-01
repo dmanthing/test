@@ -1,0 +1,46 @@
+name: pre-commit-update
+
+on:
+  workflow_call:
+    secrets:
+      PRIVATE_ACCESS_TOKEN:
+        required: true
+    inputs:
+      python_version:
+        required: false
+        default: "3.13"
+        type: string
+      branch_name:
+        required: false
+        default: "update/pre-commit-update"
+        type: string
+      pull_request_title:
+        required: false
+        default: "chore(deps): upgrade pre-commit-hooks"
+        type: string
+      commit_message:
+        required: false
+        default: "chore(deps): upgrade pre-commit-hooks"
+        type: string
+
+jobs:
+  pre-commit-update:
+    permissions:
+      contents: write # for peter-evans/create-pull-request
+      pull-requests: write # for peter-evans/create-pull-request
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ inputs.python_version }}
+      - run: pip install pre-commit-update
+        shell: bash
+      - run: pre-commit-update
+        shell: bash
+      - uses: peter-evans/create-pull-request@v7
+        with:
+          token: ${{ secrets.PRIVATE_ACCESS_TOKEN }}
+          branch: ${{ inputs.branch_name }}
+          title: ${{ inputs.pull_request_title }}
+          commit-message: ${{ inputs.commit_message }}
