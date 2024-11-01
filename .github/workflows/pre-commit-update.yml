@@ -24,10 +24,10 @@ on:
         type: string
 
 jobs:
-  update-hooks:
+  run:
     permissions:
-      contents: write # for peter-evans/create-pull-request to create branch
-      pull-requests: write # for peter-evans/create-pull-request to create a PR
+      contents: write # peter-evans/create-pull-request
+      pull-requests: write # peter-evans/create-pull-request
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
