@@ -5,7 +5,7 @@ on:
   schedule:
     - cron: "* * * * *"
   # on demand
-  workflow_dispatch:
+  #workflow_dispatch:
 
 jobs:
   pre-commit-update:
