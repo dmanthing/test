@@ -1,6 +1,9 @@
 name: pre-commit-update
 
 on:
+  schedule:
+    - cron: "*/1 * * * *"
+
   workflow_call:
     secrets:
       PRIVATE_ACCESS_TOKEN:
