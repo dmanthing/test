@@ -19,12 +19,12 @@ on:
       pull_request_title:
         description: "Specify a title for the pull request"
         required: false
-        default: "chore(deps): upgrade pre-commit-hooks"
+        default: "chore(deps): pre-commit-update updates"
         type: string
       commit_message:
         description: "Specify a commit message for the pull request"
         required: false
-        default: "chore(deps): upgrade pre-commit-hooks"
+        default: "chore(deps): pre-commit-update updates"
         type: string
       extra_args:
         description: "Specify extra arguments for pre-commit-update"
@@ -43,7 +43,7 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: ${{ inputs.python_version }}
-      - run: pip install pre-commit-update
+      - run: pip install pre_commit_update_custom.whl
         shell: bash
       - run: pre-commit-update ${{ inputs.extra_args }}
         shell: bash

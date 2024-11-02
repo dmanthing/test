@@ -13,6 +13,6 @@ jobs:
     with:
       python_version: "3.13"
       branch_name: "update/pre-commit-update"
-      pull_request_title: "chore(deps): upgrade pre-commit-hooks"
-      commit_message: "chore(deps): upgrade pre-commit-hooks"
+      pull_request_title: "chore(deps): pre-commit-update updates"
+      commit_message: "chore(deps): pre-commit-update updates"
       extra_args: "-v"
