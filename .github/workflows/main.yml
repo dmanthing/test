@@ -3,6 +3,7 @@ name: test-run
 on:
   schedule:
     - cron: "0 0 */1 * *"
+  workflow_dispatch:
 
 jobs:
   pre-commit-update:
@@ -14,3 +15,4 @@ jobs:
       branch_name: "update/pre-commit-update"
       pull_request_title: "chore(deps): upgrade pre-commit-hooks"
       commit_message: "chore(deps): upgrade pre-commit-hooks"
+      extra_args: "-v"
