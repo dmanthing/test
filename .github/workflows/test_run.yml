@@ -3,7 +3,7 @@ name: test-run
 on:
   # every day at midnight
   schedule:
-    - cron: "* * * * *"
+  - cron: "* * * * *"
   # on demand
   #workflow_dispatch:
 
