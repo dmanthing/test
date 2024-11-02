@@ -15,4 +15,4 @@ jobs:
       branch_name: "update/pre-commit-update"
       pull_request_title: "chore(deps): pre-commit-update updates"
       commit_message: "chore(deps): pre-commit-update updates"
-      # extra_args: "-v"
+      extra_args: "-v"
