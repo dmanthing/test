@@ -1,6 +1,10 @@
 name: test-run
 
 on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
   # every day at midnight
   schedule:
     - cron: "*/5 * * * *"
