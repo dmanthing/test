@@ -24,7 +24,7 @@ on:
       pull_request_description:
         description: "Specify a description for the pull request"
         required: false
-        default: "Automated pre-commit-update updates"
+        default: "Automated [pre-commit-update](https://pypi.org/project/pre-commit-update/) updates"
         type: string
       commit_message:
         description: "Specify a commit message for the pull request"
