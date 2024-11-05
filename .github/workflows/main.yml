@@ -12,7 +12,4 @@ jobs:
       PRIVATE_ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     with:
       python_version: "3.13"
-      branch_name: "update/pre-commit-update"
-      pull_request_title: "chore(deps): pre-commit-update updates"
-      commit_message: "chore(deps): pre-commit-update updates"
       extra_args: "-v"

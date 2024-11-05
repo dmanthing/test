@@ -21,6 +21,11 @@ on:
         required: false
         default: "chore(deps): pre-commit-update updates"
         type: string
+      pull_request_description:
+        description: "Specify a description for the pull request"
+        required: false
+        default: "Automated pre-commit-update updates"
+        type: string
       commit_message:
         description: "Specify a commit message for the pull request"
         required: false
@@ -52,4 +57,5 @@ jobs:
           token: ${{ secrets.PRIVATE_ACCESS_TOKEN }}
           branch: ${{ inputs.branch_name }}
           title: ${{ inputs.pull_request_title }}
+          body: ${{ inputs.pull_request_description }}
           commit-message: ${{ inputs.commit_message }}
